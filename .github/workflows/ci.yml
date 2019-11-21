@@ -18,18 +18,14 @@ jobs:
           echo $MY_VAR $FIRST_NAME $LAST_NAME
 
       - name: Checkout develop branch
-        uses: actions/checkout@master
+        uses: actions/checkout@1
 
-      - name: npm install
-        uses: actions/npm@master
+      - uses: actions/setup-node@v1
         with:
-          args: install
+          node-version: lastest
 
-      - name: npm test
-        uses: actions/npm@master
-        with:
-          args: run test
-
-
+      - run: npm install
+      - run: npm test
+      
       - name: Echo END
         run: echo 'CI ENDS -- :)'
