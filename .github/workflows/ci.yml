@@ -18,7 +18,7 @@ jobs:
           echo $MY_VAR $FIRST_NAME $LAST_NAME
 
       - name: Checkout develop branch
-        uses: actions/checkout@1
+        uses: actions/checkout@v1
 
       - uses: actions/setup-node@v1
         with:
