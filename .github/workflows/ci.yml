@@ -14,22 +14,18 @@ jobs:
           MY_VAR: Hi there! My name is
           FIRST_NAME: Yong
           LAST_NAME: Wang
-          run: |
-            echo $MY_VAR $FIRST_NAME $LAST_NAME
+        run: |
+          echo $MY_VAR $FIRST_NAME $LAST_NAME
 
       - name: Checkout develop branch
-        uses: actions/checkout@develop
+        uses: actions/checkout@v1
 
-      - name: npm install
-        uses: actions/npm@master
+      - uses: actions/setup-node@v1
         with:
-          args: install
+          node-version: '12.x'
 
-      - name: npm test
-        uses: actions/npm@master
-        with:
-          args: run test
-
-
+      - run: npm install
+      - run: npm test
+      
       - name: Echo END
         run: echo 'CI ENDS -- :)'
