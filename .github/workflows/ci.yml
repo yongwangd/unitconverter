@@ -1,0 +1,35 @@
+name: npm build, test
+on: 
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-test:
+    name: build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a Greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Yong
+          LAST_NAME: Wang
+          run: |
+            echo $MY_VAR $FIRST_NAME $LAST_NAME
+
+      - name: Checkout develop branch
+        uses: actions/checkout@develop
+
+      - name: npm install
+        uses: actions/npm@master
+        with:
+          args: install
+
+      - name: npm test
+        use: actions/npm@master
+        with:
+          args: run test
+
+
+      - name: Echo END
+        run: echo 'CI ENDS -- :)'
