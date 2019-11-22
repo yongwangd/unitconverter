@@ -21,11 +21,9 @@ const App: React.FC = () => {
 					Learn React
 				</a>
 			</header>
-			<body>
-				<Button variant="contained" color="primary">
-					Hello World
-				</Button>
-			</body>
+			<Button variant="contained" color="primary">
+				Hello World
+			</Button>
 		</div>
 	);
 };
