@@ -9,14 +9,15 @@ export type UnitCategory =
 	| 'weight'
 	| 'volumn';
 
+export type UnitId = 'gram' | 'kilogram' | 'ounce' | 'pound';
+
 export type Unit = {
-	id: string;
+	id: UnitId;
 	fulName: string;
 	shortName: string;
 	rank: number;
 	metric: MetricSystem;
 	category: UnitCategory;
-	toBase: number | SingleUnitCvtFn;
 };
 
 export type CategoryConfig = {
@@ -25,7 +26,10 @@ export type CategoryConfig = {
 	allowSubUnit: boolean;
 };
 
-export type ConverterItem = {
-	id: string;
+export type UnitMapItem = {
+	from: UnitId;
+	to: UnitId;
 	value: number;
 };
+
+export type ConverterItem = [UnitId, number];

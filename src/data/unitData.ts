@@ -1,4 +1,4 @@
-import { Unit, UnitCategory, CategoryConfig } from '../types';
+import { Unit, UnitCategory, CategoryConfig, UnitMapItem } from '../types';
 
 const categoryConfigList: CategoryConfig[] = [
 	{
@@ -21,7 +21,6 @@ const unitList: Unit[] = [
 		fulName: 'Gram',
 		rank: 0,
 		metric: 'standard',
-		toBase: 1,
 		category: 'weight'
 	},
 	{
@@ -30,7 +29,6 @@ const unitList: Unit[] = [
 		fulName: 'Kilogram',
 		rank: 30,
 		metric: 'standard',
-		toBase: 1000,
 		category: 'weight'
 	},
 	{
@@ -39,7 +37,6 @@ const unitList: Unit[] = [
 		fulName: 'Ounce',
 		rank: 10,
 		metric: 'us',
-		toBase: 28.3495231,
 		category: 'weight'
 	},
 	{
@@ -48,9 +45,18 @@ const unitList: Unit[] = [
 		fulName: 'Pound',
 		rank: 20,
 		metric: 'us',
-		toBase: 453.59237,
 		category: 'weight'
 	}
+];
+
+const unitMap: UnitMapItem[] = [
+	// weight map
+	{ from: 'kilogram', to: 'gram', value: 1000 },
+	{ from: 'ounce', to: 'gram', value: 28.3495231 },
+	{ from: 'pound', to: 'gram', value: 453.59237 },
+	{ from: 'pound', to: 'ounce', value: 16 },
+	{ from: 'kilogram', to: 'ounce', value: 35.27396195 },
+	{ from: 'kilogram', to: 'pound', value: 2.204623 }
 ];
 
 export { unitList, categoryConfigList };
